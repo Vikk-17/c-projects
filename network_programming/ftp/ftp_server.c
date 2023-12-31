@@ -9,7 +9,7 @@
 // 8. Close the socket
 // 9. Stop
 
-
+/*
 #include<stdio.h>
 #include<string.h>
 #include<sys/type.h>
@@ -19,6 +19,9 @@
 #inlude<unistd.h>
 #include<arpa/inet.h>
 #include<netdb.h>
+*/
+
+#include "headerFiles.h"
 
 #define TCP_PORT 5035
 #define MAX 60
@@ -42,6 +45,7 @@ int main(int argc, char *argv[]){
 
   struct sockaddr_in serv_addr, cli_addr;
   serv_addr.sin_family = AF_INET;
+  serv.addr.sin_addr.s_addr = INADDR_ANY;
 
 
   // Create a socket

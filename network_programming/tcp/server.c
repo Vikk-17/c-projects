@@ -1,5 +1,7 @@
 #include "headerFiles.h"
 
+#define SERVER_PORT 5035
+
 int main(){
   
   // Declare and define
@@ -20,7 +22,7 @@ int main(){
   memset(&server_addr, 0, sizeof(server_addr));
   server_addr.sin_family=AF_INET;
   server_addr.sin_addr.s_addr=htonl(INADDR_ANY); // Default IP
-  server_addr.sin_port=htons(SERV_PORT);  // Default Port 
+  server_addr.sin_port=htons(SERVER_PORT);  // Default Port 
 
   // create listen socket
   if(ls < 0 ){
@@ -34,7 +36,7 @@ int main(){
   }
   // listen to connection requests
   if(listen(ls, waitSize) < 0){
-    perrror("Error: listening failed!");
+    perror("Error: listening failed!");
     exit(1);
   }
   // handle the connection
